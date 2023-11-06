@@ -1,18 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void ruta(char *bbdd, char *equipo, char *listar){
-    char *ruta[200];
-    
-    strcpy(ruta,"db/");
-    strcat(ruta,bbdd);
-    strcat(ruta,"/");
-    strcat(ruta,equipo);
-    strcat(ruta,"/");
-    strcat(ruta,lista);
-    strcat(ruta,".json");
-    
-}
+
 void insertar(char *bbdd,char *equipo,char *lista,char *contenido){
    
     FILE *archivo;
@@ -37,9 +26,16 @@ void buscar(char *bbdd,char *equipo,char *lista){
     
     int incremento=1;
     
+    char *ruta[200];
     char linea[1024];
     
-    ruta(bbdd,equipo,lista);
+    strcpy(ruta,"db/");
+    strcat(ruta,bbdd);
+    strcat(ruta,"/");
+    strcat(ruta,equipo);
+    strcat(ruta,"/");
+    strcat(ruta,lista);
+    strcat(ruta,".json");
     
     archivo=fopen(ruta,"r");
     
@@ -52,7 +48,15 @@ void buscar(char *bbdd,char *equipo,char *lista){
 }
 void eliminar(char *bbdd, char *equipo, char *lista){
     
-    ruta(bbdd,equipo,lista);
+    char *ruta[200];
+    
+    strcpy(ruta,"db/");
+    strcat(ruta,bbdd);
+    strcat(ruta,"/");
+    strcat(ruta,equipo);
+    strcat(ruta,"/");
+    strcat(ruta,lista);
+    strcat(ruta,".json");
     
     if(remove(ruta)==0){
         printf("La ruta se ha eliminado");
