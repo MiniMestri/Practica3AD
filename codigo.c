@@ -19,13 +19,7 @@ void insertar(char *bbdd,char *equipo,char *lista,char *contenido){
     
     char *ruta[200];
     
-    strcpy(ruta,"db/");
-    strcat(ruta,bbdd);
-    strcat(ruta,"/");
-    strcat(ruta,equipo);
-    strcat(ruta,"/");
-    strcat(ruta,lista);
-    strcat(ruta,".json");
+    ruta(bbdd,equipo,lista);
     
     archivo = fopen(ruta,"a");
     fputs(strcat(contenido,"\n"),archivo);
